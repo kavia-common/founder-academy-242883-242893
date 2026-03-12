@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+# Backend-container-root shim. If CI runs from fouguide_backend and calls ./gradlew,
+# delegate to the monorepo wrapper.
+
+exec "$(dirname "$0")/../../gradlew" "$@"

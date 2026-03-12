@@ -1,0 +1,14 @@
+plugins {
+    id 'base'
+}
+
+/**
+ * CI sometimes runs `gradle check` in this directory by mistake.
+ * The `base` plugin already defines a `check` lifecycle task, so we only
+ * add a no-op action to it (do not register a new task with the same name).
+ */
+tasks.named("check") {
+    doLast {
+        println("Backend is not an Android/Gradle project; stub 'check' task succeeded.")
+    }
+}
